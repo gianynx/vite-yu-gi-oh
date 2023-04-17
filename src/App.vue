@@ -1,15 +1,20 @@
 <template>
   <HeaderComponent />
+  <main>
+    <CardList />
+  </main>
 </template>
 
 <script>
 import { store } from './data/store'
 import axios from 'axios';
 import HeaderComponent from './components/HeaderComponent.vue';
+import CardList from './components/CardList.vue';
 export default {
   name: 'App',
   components: {
-    HeaderComponent
+    HeaderComponent,
+    CardList
   },
   data() {
     return {
@@ -20,7 +25,7 @@ export default {
     getCard() {
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=50&offset=0').then((res) => {
         // console.log(res.data.data);
-        store.cardList = res.data.results;
+        store.cardList = res.data.data;
       });
     }
   },
