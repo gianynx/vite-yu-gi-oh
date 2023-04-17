@@ -1,6 +1,6 @@
 <template>
     <section class="container">
-        <div class="row">
+        <div class="row row-cols-5">
             <CardComponent v-for="card in store.cardList" :key="card.id" :card="card" />
         </div>
     </section>

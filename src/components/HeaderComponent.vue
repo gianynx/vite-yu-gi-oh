@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>ciao</h1>
+        <h1 class="text-center pt-5 pb-5 fw-bold">Yu-Gi-Oh</h1>
     </header>
 </template>
 
