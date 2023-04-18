@@ -1,6 +1,7 @@
 <template>
   <HeaderComponent />
   <main>
+    <SelectCards />
     <CardList />
   </main>
 </template>
@@ -9,11 +10,13 @@
 import { store } from './data/store'
 import axios from 'axios';
 import HeaderComponent from './components/HeaderComponent.vue';
+import SelectCards from './components/SelectCards.vue'
 import CardList from './components/CardList.vue';
 export default {
   name: 'App',
   components: {
     HeaderComponent,
+    SelectCards,
     CardList
   },
   data() {
