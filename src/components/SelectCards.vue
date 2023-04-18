@@ -1,6 +1,7 @@
 <template>
-    <select class="form-select" v-model="selected">
-        <option :value="archetype.id" v-for="archetype in archetypes" :key="archetype.id">{{ archetype.name }}</option>
+    <select class="form-select">
+        <option :value="archetype.id" v-for="archetype in archetypes" :key="archetype.id">{{ archetype.archetype_name }}
+        </option>
     </select>
 </template>
 
@@ -10,15 +11,14 @@ export default {
     name: 'SelectCard',
     data() {
         return {
-            archetypes: [],
-            selected: null
+            archetypes: []
         }
     },
     mounted() {
-        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
-            .then(response => {
-                this.archetypes = response.data;
-            })
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then((res) => {
+            console.log(res);
+            this.archetypes = res.data;
+        });
     }
 }
 </script>
