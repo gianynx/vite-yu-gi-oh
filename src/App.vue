@@ -1,7 +1,7 @@
 <template>
   <HeaderComponent />
   <main>
-    <SelectCards />
+    <SelectCards @select-cards="getCard()" />
     <CardList />
   </main>
 </template>
