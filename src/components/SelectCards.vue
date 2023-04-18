@@ -1,17 +1,24 @@
 <template>
-    <select class="form-select">
-        <option :value="archetype" v-for="archetype in store.selectedCard" :key="archetype.id"></option>
+    <select class="form-select" v-model="selected">
+        <option :value="archetype.id" v-for="archetype in archetypes" :key="archetype.id">{{ archetype.name }}</option>
     </select>
 </template>
 
 <script>
-import { store } from '../data/store';
+import axios from 'axios';
 export default {
     name: 'SelectCard',
     data() {
         return {
-            store
+            archetypes: [],
+            selected: null
         }
+    },
+    mounted() {
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+            .then(response => {
+                this.archetypes = response.data;
+            })
     }
 }
 </script>
